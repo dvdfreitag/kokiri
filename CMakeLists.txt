@@ -36,44 +36,5 @@ set(COMPILER_RT_INCLUDE_TESTS			OFF				CACHE BOOL "")
 
 add_subdirectory(${PROJ_DIR}/compiler-rt)
 
-
-# MUSL libc
-# include(ExternalProject)
-
-# set(MUSL_CFLAGS "${CMAKE_C_FLAGS} ${CMAKE_C_FLAGS_${CMAKE_BUILD_TYPE}} -target ${CMAKE_ASM_COMPILER_TARGET}")
-# set(MUSL_LDFLAGS "${CMAKE_EXE_LINKER_FLAGS} ${CMAKE_EXE_LINKER_FLAGS_${CMAKE_BUILD_TYPE}}")
-
-# set(musl_configure
-# 	<SOURCE_DIR>/configure
-# 		--srcdir=<SOURCE_DIR>
-# 		--target=${CMAKE_ASM_COMPILER_TARGET}
-# 		--disable-shared
-# 		--prefix=${CMAKE_INSTALL_PREFIX}/musl
-# 		--syslibdir=${CMAKE_INSTALL_PREFIX}/musl/lib
-# 		LIBCC=-lcompiler-rt
-# 		CC=${CMAKE_C_COMPILER}
-# 		AR=${CMAKE_AR}
-# 		RANLIB=${CMAKE_RANLIB}
-# 		CFLAGS=${MUSL_CFLAGS}
-# 		LDFLAGS=${MUSL_LDFLAGS}
-# )
-
-# ExternalProject_Add(musl
-# 	GIT_REPOSITORY				git://git.musl-libc.org/musl
-# 	GIT_TAG						v1.2.2
-# 	GIT_SHALLOW					1
-# 	GIT_PROGRESS				1
-# 	BINARY_DIR					${CMAKE_CURRENT_BINARY_DIR}/musl
-# 	CONFIGURE_COMMAND 			${musl_configure}
-# 	USES_TERMINAL				1
-# 	USES_TERMINAL_DOWNLOAD		1
-# 	USES_TERMINAL_UPDATE		1
-# 	USES_TERMINAL_CONFIGURE		1
-# 	USES_TERMINAL_BUILD			1
-# 	USES_TERMINAL_INSTALL		1
-# 	BUILD_ALWAYS				0
-# 	BUILD_BYPRODUCTS			<BINARY_DIR>/lib/libc.a
-# )
-
 set(MUSL_LGCC 							"-lcompiler-rt" CACHE STRING "")
 add_subdirectory(${PROJ_DIR}/musl)
