@@ -1,3 +1,6 @@
 [submodule "musl"]
 	path = musl
 	url = git@github.com:dvdfreitag/musl.git
+[submodule "BearSSL"]
+	path = BearSSL
+	url = git@github.com:dvdfreitag/BearSSL.git
